@@ -4,7 +4,7 @@
     "require": {
         "casbin/think-authz": "^1.2"
     },
-    "license": "rmsf",
+    "license": "rmTop",
     "authors": [
         {
             "name": "rmsf-jhz",
