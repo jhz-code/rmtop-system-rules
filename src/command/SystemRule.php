@@ -3,7 +3,6 @@
 
 namespace RmTop\command;
 
-
 use Exception;
 use ReflectionClass;
 use RmTop\lib\DocParser;
