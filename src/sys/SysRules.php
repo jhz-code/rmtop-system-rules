@@ -6,9 +6,7 @@
  * Time: 11:15 下午
  */
 namespace RmTop\sys;
-use RmTop\model\RmRoleModel;
 use RmTop\model\RmSystemRules;
-use tauthz\facade\Enforcer;
 
 class SysRules
 {

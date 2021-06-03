@@ -8,6 +8,7 @@ use Exception;
 use ReflectionClass;
 use RmTop\lib\DocParser;
 use RmTop\lib\FileLoad;
+use RmTop\sys\SysRules;
 use think\Console;
 use think\console\Input;
 use think\console\input\Argument;
@@ -30,7 +31,6 @@ class SystemRule extends Console
      * @param Input $input
      * @param Output $output
      * @return int|void|null
-     * @throws \ReflectionException
      */
     protected function execute(Input $input, Output $output)
     {
@@ -76,7 +76,7 @@ class SystemRule extends Console
             if(!in_array($value,$parentAction)){
                 $r = (new DocParser())->parse($value->getDocComment());
                 $doc = isset($r['description'])?$r['description']:"无备注";
-                SystemRules::create_sys_rule($ctr_role,$value->name,$fileName,$flag,$doc);
+                SysRules::create_sys_rule($ctr_role,$value->name,$fileName,$flag,$doc);
                 $output->writeln("[$item]:$ctr_role --- $value->name --- $doc --- successfully");
             }
         }
