@@ -1,5 +1,5 @@
 {
-    "name": "rmTop/rmsf-system-rules",
+    "name": "rmtop/rmsf-system-rules",
     "description": "\"````````\"",
     "require": {
         "casbin/think-authz": "^1.2"
