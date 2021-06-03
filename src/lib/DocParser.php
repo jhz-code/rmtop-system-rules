@@ -8,7 +8,6 @@
 
 
 namespace RmTop\lib;
-
 /**
  * Parses the PHPDoc comments for metadata. Inspired by Documentor code base
  * @category   Framework
