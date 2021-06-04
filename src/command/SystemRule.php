@@ -17,10 +17,10 @@ class SystemRule extends Command
 
     protected function configure()
     {
-        $this->setName('rm_top:sys_publish')
+        $this->setName('rm_top:sys_make')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
-            ->setDescription('role-Make');
+            ->setDescription('创建系统规则');
     }
 
 

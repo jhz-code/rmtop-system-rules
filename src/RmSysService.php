@@ -40,8 +40,8 @@ class RmSysService extends Service
     public function boot()
     {
         $this->mergeConfigFrom(__DIR__.'/config/rmtop.php', 'rmtop');
-        $this->commands(['sys_rule_make' => SystemRule::class]);
-        $this->commands(['sys_top_publish' => Publish::class]);
+        $this->commands(['rm_top:sys_make' => SystemRule::class]);
+        $this->commands(['rm_top:sys_publish' => Publish::class]);
     }
 
     /**

@@ -25,10 +25,10 @@ class Publish extends Command
 
     protected function configure()
     {
-        $this->setName('rm_top:sys_make')
+        $this->setName('rm_top:sys_publish')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
-            ->setDescription('role-Make');
+            ->setDescription('发布系统规则文件');
     }
 
 
