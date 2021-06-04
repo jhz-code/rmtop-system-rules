@@ -2,7 +2,8 @@
     "name": "rmtop/rmsf-system-rules",
     "description": "\"````````\"",
     "require": {
-        "casbin/think-authz": "^1.2"
+        "casbin/think-authz": "^1.2",
+        "topthink/think-migration": "^3.0"
     },
     "license": "rmTop",
     "authors": [
