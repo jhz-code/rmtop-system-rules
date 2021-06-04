@@ -21,7 +21,7 @@ class ScanSysPermission
      * @throws \think\db\exception\DbException
      * @throws \think\db\exception\ModelNotFoundException
      */
-    function ScanSys($dirFile,$flag,$output){
+    static function ScanSys($dirFile,$flag,$output){
         $filePath = app_path().$dirFile;
         $dir = scandir(app_path().$dirFile);
         foreach ($dir as $key=>$value){
@@ -34,7 +34,7 @@ class ScanSysPermission
                     $parentMethod = $reflect->getParentClass()->getMethods();
                 }
                 $method = array_diff($reflect->getMethods(),$parentMethod);//获取子类方法
-                $this->makeRole($reflect->getShortName(),$method,$parentMethod,$reflect->getFileName(),$flag,$output);
+                self::makeRole($reflect->getShortName(),$method,$parentMethod,$reflect->getFileName(),$flag,$output);
             }
         }
     }
@@ -54,7 +54,7 @@ class ScanSysPermission
      * @throws \think\db\exception\DbException
      * @throws \think\db\exception\ModelNotFoundException
      */
-    function makeRole(string $ctr_role, array $action,array $parentAction,string $fileName, $flag, $output){
+  static  function makeRole(string $ctr_role, array $action,array $parentAction,string $fileName, $flag, $output){
         foreach ($action as $item=>$value){
             if(!in_array($value,$parentAction)){
                 $r = (new DocParser())->parse($value->getDocComment());

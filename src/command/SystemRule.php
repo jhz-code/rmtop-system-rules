@@ -45,6 +45,7 @@ class SystemRule extends Console
 
 
 
+
         $filePath = app_path().$dirFile;
         try{
             $dir = scandir(app_path().$dirFile);
