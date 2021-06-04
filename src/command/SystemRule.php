@@ -16,7 +16,7 @@ class SystemRule extends Console
 
     protected function configure()
     {
-        $this->setName('SysRules::publish')
+        $this->setName('SysRules')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
             ->setDescription('role-Make');
