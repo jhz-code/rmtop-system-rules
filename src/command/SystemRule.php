@@ -17,7 +17,7 @@ class SystemRule extends Command
 
     protected function configure()
     {
-        $this->setName('SysRules')
+        $this->setName('sys_rule_make')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
             ->setDescription('role-Make');
@@ -33,8 +33,6 @@ class SystemRule extends Command
     protected function execute(Input $input, Output $output)
     {
         try{
-            PublishFile::PublishFileToSys();//发布文件
-            $output = Console::call('migrate:run');//执行数据库迁移
             $dirFile = trim($input->getArgument('dirFile'));//文件路径
             $flag = trim($input->getArgument('flag'));//标识
             ScanSysPermission::ScanSys($dirFile,$flag,$output);

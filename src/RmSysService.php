@@ -4,6 +4,7 @@ namespace RmTop;
 
 
 use Casbin\Bridge\Logger\LoggerBridge;
+use RmTop\command\Publish;
 use RmTop\command\SystemRule;
 use think\facade\Log;
 use think\Service;
@@ -38,18 +39,9 @@ class RmSysService extends Service
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/rmtop.php', 'rmtop');
-
-        // 设置 Casbin Logger
-        if ($logger = $this->app->config->get('rmtop.log.logger')) {
-            if (is_string($logger)) {
-                $logger = $this->app->make($logger);
-            }
-
-            Log::setLogger(new LoggerBridge($logger));
-        }
-
-        $this->commands(['SysRules:publish' => SystemRule::class]);
+        $this->mergeConfigFrom(__DIR__.'/config/rmtop.php', 'rmtop');
+        $this->commands(['sys_rule_make' => SystemRule::class]);
+        $this->commands(['sys_top_publish' => Publish::class]);
     }
 
     /**

@@ -1,0 +1,51 @@
+<?php
+/**
+ * Created by YnRmsf.
+ * User: zhuok520@qq.com
+ * Date: 2021/6/4
+ * Time: 10:55 下午
+ */
+
+
+namespace RmTop\command;
+
+
+use RmTop\lib\PublishFile;
+use RmTop\lib\ScanSysPermission;
+use think\Console;
+use think\console\Command;
+use think\console\Input;
+use think\console\input\Argument;
+use think\console\Output;
+use think\Exception;
+
+class Publish extends Command
+{
+
+
+    protected function configure()
+    {
+        $this->setName('sys_top_publish')
+            ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
+            ->addArgument('flag', Argument::OPTIONAL, "flag")//
+            ->setDescription('role-Make');
+    }
+
+
+    /**
+     * 执行数据
+     * @param Input $input
+     * @param Output $output
+     * @return int|void|null
+     */
+    protected function execute(Input $input, Output $output)
+    {
+        try{
+            PublishFile::PublishFileToSys();//发布文件
+        }catch (Exception $exception){
+            $output->writeln($exception->getMessage());
+        }
+    }
+
+
+}
