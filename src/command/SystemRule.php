@@ -7,7 +7,10 @@ use Exception;
 use ReflectionClass;
 use RmTop\lib\DocParser;
 use RmTop\lib\FileLoad;
+use RmTop\lib\PublishFile;
+use RmTop\lib\ScanSysPermission;
 use RmTop\sys\SysRules;
+use tauthz\command\Publish;
 use think\Console;
 use think\console\Input;
 use think\console\input\Argument;
@@ -18,7 +21,7 @@ class SystemRule extends Console
 
     protected function configure()
     {
-        $this->setName('SysRules')
+        $this->setName('SysRules::publish')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
             ->setDescription('role-Make');
@@ -33,8 +36,15 @@ class SystemRule extends Console
      */
     protected function execute(Input $input, Output $output)
     {
+
+        PublishFile::PublishFileToSys();//发布文件
+        $output = Console::call('migrate:run');//执行数据库迁移
         $dirFile = trim($input->getArgument('dirFile'));
         $flag = trim($input->getArgument('flag'));
+
+
+
+
         $filePath = app_path().$dirFile;
         try{
             $dir = scandir(app_path().$dirFile);
