@@ -7,11 +7,12 @@ use Exception;
 use RmTop\lib\PublishFile;
 use RmTop\lib\ScanSysPermission;
 use think\Console;
+use think\console\Command;
 use think\console\Input;
 use think\console\input\Argument;
 use think\console\Output;
 
-class SystemRule extends Console
+class SystemRule extends Command
 {
 
     protected function configure()
