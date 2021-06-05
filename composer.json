@@ -16,5 +16,12 @@
         "psr-4": {
             "RmTop\\": "src/"
         }
+    },
+    "extra": {
+        "think": {
+            "services": [
+                "rmtop\\RmSysService"
+            ]
+        }
     }
 }
