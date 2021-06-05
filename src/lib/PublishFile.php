@@ -11,7 +11,7 @@ class PublishFile
      * 发布到系统
      */
     static function PublishFileToSys($output){
-        $destination = app_path() . '/database/migrations/';
+        $destination = root_path() . '/database/migrations/';
         if(!is_dir($destination)){
             mkdir($destination, 0755, true);
         }
