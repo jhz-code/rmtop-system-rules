@@ -4,9 +4,7 @@
 namespace RmTop\command;
 
 use Exception;
-use RmTop\lib\PublishFile;
 use RmTop\lib\ScanSysPermission;
-use think\Console;
 use think\console\Command;
 use think\console\Input;
 use think\console\input\Argument;
@@ -16,7 +14,7 @@ class SystemRule extends Command
 {
     protected function configure()
     {
-        $this->setName('rm_top:sys_make')
+        $this->setName('rmtop:sys_make')
             ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
             ->addArgument('flag', Argument::OPTIONAL, "flag")//
             ->setDescription('创建系统规则');

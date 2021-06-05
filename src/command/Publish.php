@@ -11,11 +11,8 @@ namespace RmTop\command;
 
 
 use RmTop\lib\PublishFile;
-use RmTop\lib\ScanSysPermission;
-use think\Console;
 use think\console\Command;
 use think\console\Input;
-use think\console\input\Argument;
 use think\console\Output;
 use think\Exception;
 
@@ -25,7 +22,7 @@ class Publish extends Command
 
     protected function configure()
     {
-        $this->setName('rm_top:sys_publish')
+        $this->setName('rmtop:sys_publish')
             ->setDescription('发布系统规则文件');
     }
 
