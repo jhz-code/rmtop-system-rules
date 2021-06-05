@@ -26,8 +26,6 @@ class Publish extends Command
     protected function configure()
     {
         $this->setName('rm_top:sys_publish')
-            ->addArgument('dirFile', Argument::OPTIONAL, "file dir")//扫描路径
-            ->addArgument('flag', Argument::OPTIONAL, "flag")//
             ->setDescription('发布系统规则文件');
     }
 
@@ -42,6 +40,7 @@ class Publish extends Command
     {
         try{
             PublishFile::PublishFileToSys();//发布文件
+            $output->writeln("publish successfully！");
         }catch (Exception $exception){
             $output->writeln($exception->getMessage());
         }
