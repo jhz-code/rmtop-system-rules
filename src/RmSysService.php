@@ -34,7 +34,6 @@ class RmSysService extends Service
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/rmtop.php', 'rmtop');
         $this->commands(['rmtop:sys_publish' => Publish::class,'rmtop:sys_make' => SystemRule::class]);
     }
 
@@ -48,10 +47,5 @@ class RmSysService extends Service
      *
      * @return void
      */
-    protected function mergeConfigFrom(string $path, string $key)
-    {
-        $config = $this->app->config->get($key, []);
 
-        $this->app->config->set(array_merge(require $path, $config), $key);
-    }
 }
