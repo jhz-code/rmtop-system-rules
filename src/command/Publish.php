@@ -39,8 +39,8 @@ class Publish extends Command
     protected function execute(Input $input, Output $output)
     {
         try{
-            PublishFile::PublishFileToSys();//发布文件
-            $output->writeln("publish successfully！");
+            PublishFile::PublishFileToSys($output);//发布文件
+            $output->writeln("all publish successfully！");
         }catch (Exception $exception){
             $output->writeln($exception->getMessage());
         }

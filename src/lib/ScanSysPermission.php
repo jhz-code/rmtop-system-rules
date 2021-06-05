@@ -58,7 +58,7 @@ class ScanSysPermission
         foreach ($action as $item=>$value){
             if(!in_array($value,$parentAction)){
                 $r = (new DocParser())->parse($value->getDocComment());
-                $doc = isset($r['description'])?$r['description']:"无备注";
+                $doc = isset($r['description'])?$r['description']:"-";
                 SysRules::create_sys_rule($ctr_role,$value->name,$fileName,$flag,$doc);
                 $output->writeln("[$item]:$ctr_role --- $value->name --- $doc --- successfully");
             }
