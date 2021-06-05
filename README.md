@@ -5,10 +5,10 @@
 composer require  rmtop/rmsf-system-rules
 
 
-php think rm_top:sys_publish
+php think rmtop:sys_publish
 
 
 php think migrate:run
 
 
-php think rm_top:sys_make admin/controller admin
+php think rmtop:sys_make admin/controller admin
