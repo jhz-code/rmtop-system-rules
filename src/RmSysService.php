@@ -8,9 +8,6 @@ use RmTop\command\SystemRule;
 use think\Service;
 
 /**
- * Tauthz service.
- *
- * @author techlee@qq.com
  */
 class RmSysService extends Service
 {
@@ -23,8 +20,6 @@ class RmSysService extends Service
     {
         // 注册数据迁移服务
         $this->app->register(\think\migration\Service::class);
-        $this->app->register(RmSysService::class);
-
     }
 
     /**
@@ -37,15 +32,5 @@ class RmSysService extends Service
         $this->commands(['rmtop:sys_publish' => Publish::class,'rmtop:sys_make' => SystemRule::class]);
     }
 
-
-
-    /**
-     * Merge the given configuration with the existing configuration.
-     *
-     * @param string $path
-     * @param string $key
-     *
-     * @return void
-     */
 
 }

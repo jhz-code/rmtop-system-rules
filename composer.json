@@ -15,12 +15,15 @@
     "autoload": {
         "psr-4": {
             "RmTop\\": "src/"
-        }
+        },
+        "files": [
+            "src/helper.php"
+        ]
     },
     "extra": {
         "think": {
             "services": [
-                "Rmtop\\RmSysService"
+                "RmTop\\RmSysService"
             ]
         }
     }
