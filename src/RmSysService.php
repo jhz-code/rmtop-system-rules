@@ -3,10 +3,8 @@
 namespace RmTop;
 
 
-use Casbin\Bridge\Logger\LoggerBridge;
 use RmTop\command\Publish;
 use RmTop\command\SystemRule;
-use think\facade\Log;
 use think\Service;
 
 /**
