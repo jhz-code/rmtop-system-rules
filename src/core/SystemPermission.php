@@ -1,15 +1,15 @@
 <?php
 
 
-namespace app\common\business\sys;
+namespace RmTop\core;
 
-use app\common\model\RmRoleModel;
+use RmTop\model\RmRoleModel;
 use tauthz\facade\Enforcer;
 
 /**
  * 系统权限
  * Class Permission
- * @package app\common\business
+ * @package
  */
 
 class SystemPermission
@@ -36,23 +36,43 @@ class SystemPermission
     /**
      * @param string $role_name
      * @param string $role_symbol
+     * @param string $role_org_img
      * @return RmRoleModel|\think\Model |\think\Model
      */
-    static function createRole(string $role_name,string $role_symbol){
+    static function createRole(string $role_name,string $role_symbol,string $role_org_img = ''){
         return RmRoleModel::create([
             'role_name'=>$role_name,
             'role_sym'=>$role_symbol,
+            'role_org_img'=>$role_org_img,
         ]);
+    }
+
+
+    /**
+     * 获取系统角色列表
+     * @param array $where
+     * @param int $limit
+     * @return RmRoleModel|\think\Paginator
+     * @throws \think\db\exception\DbException
+     */
+    static function getRoleList(array  $where = [],$limit = 10){
+        if($where){
+            return RmRoleModel::where($where)->paginate($limit);
+        }else{
+            return RmRoleModel::where(1)->paginate($limit);
+        }
     }
 
 
     /**
      * 删除角色
      * @param string $role
-     *
+     * @return bool
      */
-    static function deleteRole(string $role){
+    static function deleteRole(string $role): bool
+    {
         Enforcer::deleteRole($role);
+        return RmRoleModel::where(['role_sym'=>$role])->delete();
     }
 
 
@@ -109,7 +129,7 @@ class SystemPermission
 
 
     /**
-     * 删除某个用户的 某个权限
+     * 删除某个用户的 某个角色
      * @param string $user
      * @param string $role
      */
