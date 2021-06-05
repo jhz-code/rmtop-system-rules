@@ -23,10 +23,8 @@ class RmSysService extends Service
     {
         // 注册数据迁移服务
         $this->app->register(\think\migration\Service::class);
-        $this->app->bind('RmSysService', RmSysService::class);
-        $this->app->bind('rmtopsys', function () {
-            $default = $this->app->config->get('rmtop.default');
-        });
+        $this->app->register(RmSysService::class);
+
     }
 
     /**
@@ -37,8 +35,7 @@ class RmSysService extends Service
     public function boot()
     {
         $this->mergeConfigFrom(__DIR__.'/config/rmtop.php', 'rmtop');
-        $this->commands(['rm_top:sys_make' => SystemRule::class]);
-        $this->commands(['rm_top:sys_publish' => Publish::class]);
+        $this->commands(['rm_top:sys_publish' => Publish::class,'rm_top:sys_make' => SystemRule::class]);
     }
 
 
