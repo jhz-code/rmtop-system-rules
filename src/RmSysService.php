@@ -44,6 +44,8 @@ class RmSysService extends Service
         $this->commands(['rm_top:sys_publish' => Publish::class]);
     }
 
+
+
     /**
      * Merge the given configuration with the existing configuration.
      *

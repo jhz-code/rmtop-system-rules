@@ -14,7 +14,6 @@ use think\console\Output;
 
 class SystemRule extends Command
 {
-
     protected function configure()
     {
         $this->setName('rm_top:sys_make')
