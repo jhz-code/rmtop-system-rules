@@ -9,6 +9,7 @@ use RmTop\model\RmSystemRules;
 class SystemRule
 {
 
+
     /**
      * 获取系统规则列表
      * @param array $where
@@ -16,14 +17,16 @@ class SystemRule
      * @return \think\Paginator
      * @throws \think\db\exception\DbException
      */
-   static  function getSystemRuleList(array  $where = [],$limit = 10): \think\Paginator
+    static  function getSystemRuleList(string $file='', array  $where = [], int $limit = 10): \think\Paginator
     {
         if($where){
-            return RmSystemRules::where($where)->paginate($limit);
+            return RmSystemRules::where($where)->field($file)->paginate($limit);
         }else{
-            return RmSystemRules::where(1)->paginate($limit);
+            return RmSystemRules::where(1)->field($file)->paginate($limit);
         }
     }
+
+
 
 
     /**
