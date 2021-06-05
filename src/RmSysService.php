@@ -25,8 +25,7 @@ class RmSysService extends Service
     {
         // 注册数据迁移服务
         $this->app->register(\think\migration\Service::class);
-
-        // 绑定 Casbin决策器
+        $this->app->bind('RmSysService', RmSysService::class);
         $this->app->bind('rmtopsys', function () {
             $default = $this->app->config->get('rmtop.default');
         });
