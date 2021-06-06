@@ -16,12 +16,12 @@
 `php think migrate:run
 `
 创建权限相关数据表
-rm_sys_role  //角色表
-rm_sys_rule  //规则表
-rm_rules     //权限角色关系表
+rm_sys_role  //角色表  <br>
+rm_sys_rule  //规则表  <br>
+rm_rules     //权限角色关系表 <br>
 
 
 
 ###扫描系统：
-执行示例：
+执行示例：<br>
 `php think rmtop:sys_make admin/controller admin`
