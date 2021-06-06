@@ -3,16 +3,25 @@
 
 #安装
 
-composer require  rmtop/rmsf-system-rules
-
+`composer require  rmtop/rmsf-system-rules
+`
 
 ###发布文件：
-php think rmtop:sys_publish
+`php think rmtop:sys_publish
+`
+发布系统权限相关文件
 
 
 ###数据迁移：
-php think migrate:run
+`php think migrate:run
+`
+创建权限相关数据表
+rm_sys_role  //角色表
+rm_sys_rule  //规则表
+rm_rules     //权限角色关系表
+
 
 
 ###扫描系统：
-php think rmtop:sys_make admin/controller admin
+执行示例：
+`php think rmtop:sys_make admin/controller admin`
