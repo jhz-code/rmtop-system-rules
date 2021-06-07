@@ -14,7 +14,9 @@
 <br><br>发布系统权限相关文件
 
 
-###数据迁移：
+###执行数据迁移：
+<br>
+
 `php think migrate:run
 `
 <br>
