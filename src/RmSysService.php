@@ -7,6 +7,7 @@ use RmTop\command\Publish;
 use RmTop\command\SystemRule;
 use think\Service;
 
+
 /**
  */
 class RmSysService extends Service
