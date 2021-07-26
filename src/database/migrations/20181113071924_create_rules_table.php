@@ -87,7 +87,7 @@ class CreateRulesTable extends Migrator
     {
 
         $options = $this->getDbConfig();
-        $table = $this->table($options['table_prefix']."rules");
+        $table = $this->table("rules");
         $table->addColumn('ptype', 'string', ['null' => true])
             ->addColumn('v0', 'string', ['null' => true])
             ->addColumn('v1', 'string', ['null' => true])
@@ -101,7 +101,7 @@ class CreateRulesTable extends Migrator
     public function down()
     {
         $options = $this->getDbConfig();
-        $table = $this->table($options['table_prefix']."rules");
+        $table = $this->table("rules");
         $table->drop();
     }
 }

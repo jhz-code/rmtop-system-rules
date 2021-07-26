@@ -109,7 +109,7 @@ class SysRoles extends Migrator
     public function up()
     {
         $options = $this->getDbConfig();
-        $table = $this->table($options['table_prefix']."sys_role");
+        $table = $this->table("sys_role");
         $table->addColumn('role_title', 'string', ['limit' => 100,'default'=>'','comment'=>'角色名称'])
             ->addColumn('role_sym', 'string', ['limit' => 100,'default'=>'','comment'=>'角色标识符'])
             ->addColumn('role_org_img', 'string', ['limit' => 150,'default'=>'','comment'=>'角色图标'])
@@ -120,7 +120,7 @@ class SysRoles extends Migrator
     public function down()
     {
         $options = $this->getDbConfig();
-        $table =  $this->table($options['table_prefix']."sys_role");
+        $table =  $this->table("sys_role");
         $table->drop();
     }
 
