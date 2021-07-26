@@ -111,8 +111,8 @@ class SysRules extends Migrator
      */
     public function up()
     {
-        $default = config('rmtop.default');
-        $table = $this->table(config('rmtop.'.$default.'.database.sys_rule_name'));
+        $options = $this->getDbConfig();
+        $table = $this->table(config($options['table_prefix']."sys_rule"));
         $table->addColumn('flag', 'string', ['limit' => 10,'default'=>'','comment'=>'目录名称'])
             ->addColumn('des', 'string', ['limit' => 100,'default'=>'','comment'=>'操作描述'])
             ->addColumn('file_name', 'string', ['limit' => 100,'default'=>'','comment'=>'文件位置'])
@@ -124,8 +124,8 @@ class SysRules extends Migrator
 
     public function down()
     {
-        $default = config('rmtop.default');
-        $table = $this->table(config('rmtop.'.$default.'.database.sys_rule_name'));
+        $options = $this->getDbConfig();
+        $table = $this->table(config($options['table_prefix']."sys_rule"));
         $table->drop();
     }
 

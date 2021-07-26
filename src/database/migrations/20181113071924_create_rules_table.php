@@ -13,23 +13,23 @@ class CreateRulesTable extends Migrator
     protected function init()
     {
         $options = $this->getDbConfig();
-    
+
         $adapter = AdapterFactory::instance()->getAdapter($options['adapter'], $options);
-    
+
         if ($adapter->hasOption('table_prefix') || $adapter->hasOption('table_suffix')) {
             $adapter = AdapterFactory::instance()->getWrapper('prefix', $adapter);
         }
-    
-        $this->setAdapter( $adapter);    
+
+        $this->setAdapter( $adapter);
     }
-    
+
     /**
      * 获取数据库配置
      * @return array
      */
     protected function getDbConfig(): array
     {
-        $default = config('tauthz.database.connection') ?: config('database.default');
+        $default =  config('database.default');
 
         $config = config("database.connections.{$default}");
 
@@ -87,8 +87,9 @@ class CreateRulesTable extends Migrator
      */
     public function up()
     {
-        $default = config('tauthz.default');
-        $table = $this->table(config('tauthz.enforcers.'.$default.'.database.rules_name'));
+
+        $options = $this->getDbConfig();
+        $table = $this->table(config($options['table_prefix']."rules"));
         $table->addColumn('ptype', 'string', ['null' => true])
             ->addColumn('v0', 'string', ['null' => true])
             ->addColumn('v1', 'string', ['null' => true])
@@ -101,8 +102,8 @@ class CreateRulesTable extends Migrator
 
     public function down()
     {
-        $default = config('tauthz.default');
-        $table = $this->table(config('tauthz.enforcers.'.$default.'.database.rules_name'));
+        $options = $this->getDbConfig();
+        $table = $this->table(config($options['table_prefix']."rules"));
         $table->drop();
     }
 }
