@@ -30,9 +30,7 @@ class CreateRulesTable extends Migrator
     protected function getDbConfig(): array
     {
         $default =  config('database.default');
-
         $config = config("database.connections.{$default}");
-
         if (0 == $config['deploy']) {
             $dbConfig = [
                 'adapter'      => $config['type'],
@@ -89,7 +87,7 @@ class CreateRulesTable extends Migrator
     {
 
         $options = $this->getDbConfig();
-        $table = $this->table(config($options['table_prefix']."rules"));
+        $table = $this->table($options['table_prefix']."rules");
         $table->addColumn('ptype', 'string', ['null' => true])
             ->addColumn('v0', 'string', ['null' => true])
             ->addColumn('v1', 'string', ['null' => true])
@@ -103,7 +101,7 @@ class CreateRulesTable extends Migrator
     public function down()
     {
         $options = $this->getDbConfig();
-        $table = $this->table(config($options['table_prefix']."rules"));
+        $table = $this->table($options['table_prefix']."rules");
         $table->drop();
     }
 }

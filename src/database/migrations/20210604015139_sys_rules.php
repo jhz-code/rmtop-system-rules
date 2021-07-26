@@ -112,7 +112,7 @@ class SysRules extends Migrator
     public function up()
     {
         $options = $this->getDbConfig();
-        $table = $this->table(config($options['table_prefix']."sys_rule"));
+        $table = $this->table($options['table_prefix']."sys_rule");
         $table->addColumn('flag', 'string', ['limit' => 10,'default'=>'','comment'=>'目录名称'])
             ->addColumn('des', 'string', ['limit' => 100,'default'=>'','comment'=>'操作描述'])
             ->addColumn('file_name', 'string', ['limit' => 100,'default'=>'','comment'=>'文件位置'])
@@ -125,7 +125,7 @@ class SysRules extends Migrator
     public function down()
     {
         $options = $this->getDbConfig();
-        $table = $this->table(config($options['table_prefix']."sys_rule"));
+        $table = $this->table($options['table_prefix']."sys_rule");
         $table->drop();
     }
 
